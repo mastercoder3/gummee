@@ -1,0 +1,46 @@
+<!--
+  Generated template for the FavoritePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar  hideBackButton="true" color="primary">
+        <ion-buttons left>
+            <button ion-button  icon-only (click)="goBack()">
+             <ion-icon ios="ios-arrow-back" md="md-arrow-back" style="color:white"></ion-icon>
+           </button>
+           </ion-buttons>
+      <ion-title>Favourite</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-grid *ngIf="favorites">
+        <ion-card *ngFor="let x of favorites">
+          <div>
+              <img (click)="show(x)" [src]="x.photo || 'https://cdn.dribbble.com/users/21845/screenshots/3938419/placeholder.png'" height="150px" />
+          </div>
+          
+  <ion-card-content>
+    <ion-card-title>
+      {{x.title}} <strong *ngIf="x.isExpired" style="color:red;font-size:x-large">Expired</strong>
+      </ion-card-title>
+    <p>
+      {{x.description}}
+      <span style="color:purple"><strong>{{x.brand}}</strong></span>
+    </p>
+    <ion-row>
+      <ion-col>
+        <button ion-button (click)="removeFromFav(x)">
+          Delete
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-card-content>
+        </ion-card>
+      </ion-grid>
+</ion-content>

@@ -1,0 +1,136 @@
+<ion-header>
+  <ion-navbar hideBackButton="true">
+    <ion-title>GUMEE</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content no-padding>
+    <ion-row>
+        <ion-col ion-col text-left no-padding col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6 >
+          <ion-searchbar text-left class="searchbar" [(ngModel)]="terms"></ion-searchbar>
+        </ion-col>
+      </ion-row><br>
+      <ion-grid style="background-color:rgba(0, 0, 0, 0.075)" *ngIf="terms">
+          <ion-row *ngFor="let x of deals | search: terms | sort: {property: column, order: order}" (click)="show(x)">
+            <ion-card class="card-background-page">
+              <ion-grid no-padding>
+                <ion-row>
+                  <ion-col col-6>
+                    <img class="imgx" [src]="x.photo || 'https://cdn.dribbble.com/users/21845/screenshots/3938419/placeholder.png'" height="100%"/>
+                  </ion-col>
+                  <ion-col col-6>
+                    <div class="card-body">
+                      <div class="card-title">{{x.title}}</div>
+                      <!-- <div class="card-subtitle">{{x?.description}}</div> -->
+                    </div>
+                    <div class="card-footer" style="text-align: center;" text-center>
+                      <hr style="width:100%;">
+                      <small style="color:#00aeef"> {{x?.brand}}</small>
+                      <br>
+                      <small> Ends in
+                        <span style="color:red">{{x?.endDate }} </span>
+                      </small>
+                    </div>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-card>
+          </ion-row>
+        </ion-grid>
+
+
+
+
+        <!-- CATEOGIRES -->
+  <!-- <ion-grid *ngIf="terms == ''">
+    <div class="switch-case-div" style="background-color:#00000007">
+      <ion-segment [(ngModel)]="segment">
+        <ion-segment-button class="segment-btn" value="all">
+          ALL
+        </ion-segment-button>
+        <ion-segment-button class="segment-btn" value="online">
+          Online
+        </ion-segment-button>
+        <ion-segment-button class="segment-btn" value="instore">
+          Instore
+        </ion-segment-button>
+
+      </ion-segment>
+    </div>
+    <div [ngSwitch]="segment" class="Profile" padding class="page-color" >
+      <div *ngSwitchCase="'all'">
+        <ion-grid *ngIf="categories">
+          <ion-row *ngFor="let x of categories">
+            <ion-col ion-col text-left no-padding col-2 col-sm-2 col-md-2 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
+              <ion-avatar item-start>
+                <img class="img" [src]="x.photo">
+              </ion-avatar>
+            </ion-col>
+            <ion-col ion-col text-left text-wrap no-padding col-9 col-sm-9 col-md-9 offset-lg-3 col-lg-6 offset-xl-3
+              col-xl-6>
+              <p style="position:relative; left:12px; top:5px; font-size:15px"><b>{{x.name}}</b>
+                <br>
+                <small>{{x?.type}}</small>
+              </p>
+            </ion-col>
+            <ion-col ion-col text-left no-padding col-1 col-sm-1 col-md-1 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6
+              style="font-size:30px;margin-top:17px">
+              <ion-icon class="icon" name="add-circle" color="primary" *ngIf="findCategory(x.id) == false"  (click)="addCategory(x.id)" ></ion-icon>
+              <ion-icon class="icon" name="remove-circle" color="danger" *ngIf="findCategory(x.id) == true" (click)="removeCategory(x.id)"></ion-icon>            </ion-col>
+          </ion-row><br>
+        </ion-grid>
+      </div>
+      <div *ngSwitchCase="'online'">
+        <ion-grid *ngIf="online">
+          <ion-row *ngFor="let x of online">
+            <ion-col ion-col text-left no-padding col-2 col-sm-2 col-md-2 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
+              <ion-avatar item-start>
+                <img class="img" [src]="x.photo">
+              </ion-avatar>
+            </ion-col>
+            <ion-col ion-col text-left text-wrap no-padding col-9 col-sm-9 col-md-9 offset-lg-3 col-lg-6 offset-xl-3
+              col-xl-6>
+              <p style="position:relative; left:12px; top:5px; font-size:15px"><b>{{x.name}}</b>
+                <br>
+                <small>{{x?.type}}</small>
+              </p>
+            </ion-col>
+            <ion-col ion-col text-left no-padding col-1 col-sm-1 col-md-1 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6
+              style="font-size:30px;margin-top:17px">
+              <ion-icon class="icon" name="add-circle" color="primary" *ngIf="findCategory(x.id) == false"  (click)="addCategory(x.id)" ></ion-icon>
+              <ion-icon class="icon" name="remove-circle" color="danger" *ngIf="findCategory(x.id) == true" (click)="removeCategory(x.id)"></ion-icon>            </ion-col>
+          </ion-row><br>
+        </ion-grid>
+      </div>
+      <div *ngSwitchCase="'instore'">
+        <ion-grid *ngIf="instore ">
+          <ion-row *ngFor="let x of instore">
+            <ion-col ion-col text-left no-padding col-2 col-sm-2 col-md-2 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
+              <ion-avatar item-start>
+                <img class="img" [src]="x.photo">
+              </ion-avatar>
+            </ion-col>
+            <ion-col ion-col text-left text-wrap no-padding col-9 col-sm-9 col-md-9 offset-lg-3 col-lg-6 offset-xl-3
+              col-xl-6>
+              <p style="position:relative; left:12px; top:5px; font-size:15px"><b>{{x.name}}</b>
+                <br>
+                <small>{{x?.type}}</small>
+              </p>
+            </ion-col>
+            <ion-col ion-col text-left no-padding col-1 col-sm-1 col-md-1 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6
+              style="font-size:30px;margin-top:17px">
+              <ion-icon class="icon" name="add-circle" color="primary" *ngIf="findCategory(x.id) == true"  (click)="addCategory(x.id)" ></ion-icon>
+              <ion-icon class="icon" name="remove-circle" color="danger" *ngIf="findCategory(x.id) == false" (click)="removeCategory(x.id)"></ion-icon>
+            </ion-col>
+          </ion-row><br>
+        </ion-grid>
+      </div>
+    </div>
+  </ion-grid> -->
+</ion-content>
+
+<ion-footer>
+
+  <ion-fab left bottom (tap)="goBack()">
+    <button ion-fab color="primary"><ion-icon name="ios-arrow-round-back-outline" color="light"></ion-icon></button>
+</ion-fab>
+</ion-footer>

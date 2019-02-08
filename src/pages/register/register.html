@@ -1,0 +1,85 @@
+
+<ion-header>
+      <ion-fab left top (click)="goback()">
+        <button ion-fab color="light" style="background-color:transparent">
+            <ion-icon name="ios-arrow-round-back-outline" color="primary" style="font-size:46px;font-weight:bold"></ion-icon>
+        </button>
+    </ion-fab>
+  <ion-navbar hideBackButton="true">
+    <ion-title>Join us</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content no-padding>
+  <ion-grid padding>
+      <ion-row>
+          <ion-col text-center no-padding col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
+            <div form style="margin-top: 10px">
+            <!-- Header Title -->
+            <h6 ion-text register-title no-margin padding-bottom text-wrap style="font-weight: 100">Welcome abroad</h6><br><br>
+              <!--Form-->
+              <ion-row>
+
+                <ion-col no-padding col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
+              <ion-input class="input" text-left type="text" placeholder="Name" [(ngModel)]="user.name"></ion-input>
+              <ion-label error-field no-margin></ion-label>
+               </ion-col>
+              </ion-row>
+              <hr>
+
+              <ion-row>
+                  <ion-col no-padding col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
+                  <ion-input class="input" text-left  type="email" placeholder="E-mail" [(ngModel)]="user.email"></ion-input>
+                  </ion-col>
+
+                  <ion-label error-field no-margin></ion-label>
+                  </ion-row>
+                  <hr>
+                  <ion-row>
+
+                      <ion-col no-padding col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
+                    <ion-input class="input" text-left type="password" placeholder="Create password" [(ngModel)]="user.password"></ion-input>
+                    <ion-label error-field no-margin></ion-label>
+                     </ion-col>
+                    </ion-row>
+                    <hr>
+                      <ion-row>
+
+                          <ion-col no-padding col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
+                          <ion-input class="input" text-left  type="number" placeholder="Phone number" [(ngModel)]="user.phone"></ion-input>
+                          </ion-col>
+
+                          <ion-label error-field no-margin></ion-label>
+                          </ion-row><hr><br><br>
+
+              <!---Register button-->
+              <ion-row>
+                <ion-col ion-col text-center no-padding col-3 col-sm-3 col-md-3 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
+                  <p>____________</p>
+                </ion-col>
+                <ion-col ion-col text-center no-padding col-6 col-sm-6 col-md-6 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
+                   <p>Join us now </p>
+                </ion-col>
+                <ion-col ion-col text-center no-padding col-3 col-sm-3 col-md-3 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
+                  <p>____________</p>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                  <ion-col ion-col text-center no-padding col-1 col-sm-1 col-md-1 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
+
+                  </ion-col>
+                  <ion-col ion-col text-center no-padding col-10 col-sm-10 col-md-10 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
+                <button class="btn" ion-button round default-button text-capitalize box-shadow (click)="two()">Register Now</button>
+                <br>
+  
+                  </ion-col>
+                  <ion-col ion-col text-center no-padding col-1 col-sm-1 col-md-1 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
+
+                    </ion-col>
+                    </ion-row>
+            </div>
+          </ion-col>
+      </ion-row>
+  </ion-grid>
+</ion-content>

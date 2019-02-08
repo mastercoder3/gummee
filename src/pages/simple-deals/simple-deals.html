@@ -1,0 +1,88 @@
+<ion-header>
+  <ion-navbar color="primary">
+      <button ion-button icon-only menuToggle>
+          <ion-icon name="menu" style="color:white"></ion-icon>
+        </button>
+    <ion-title>Home</ion-title>
+    <ion-buttons end>
+    <button (click)="presentAlertCheckbox()" ion-button icon-only right>
+      <ion-icon name="color-filter" style="color:white"></ion-icon></button></ion-buttons>
+  </ion-navbar>
+  <ion-toolbar color="primary">
+      
+        <!-- <ion-buttons end>
+            <button ion-button icon-only>
+              <ion-icon name="search" style="color:white"></ion-icon>
+            </button>
+          </ion-buttons> -->
+      <ion-searchbar [(ngModel)]="userInput" (ionChange)="searchFilter()" (ionCancel)="changeSearchBar()" debounce=500 showCancelButton="true"> </ion-searchbar>
+
+  </ion-toolbar>  
+  <ion-toolbar>
+      <ion-segment [(ngModel)]="selection" color="primary" (ionChange)="segmentChanged($event)">
+        <ion-segment-button value="online">
+          Online Deals
+        </ion-segment-button>
+        <ion-segment-button value="instore">
+          InStore Deals
+        </ion-segment-button>
+      <ion-segment-button value="all">
+          All
+        </ion-segment-button>
+      </ion-segment>
+    </ion-toolbar>
+
+<!--      <ion-item >
+    <ion-label>Select Category</ion-label>
+    <ion-select [(ngModel)]="category" (ionChange)="segmentChanged2($event)">
+        <ion-option value="mob">Mobile & Electronics</ion-option>
+        <ion-option value="foods">Foods</ion-option>
+        <ion-option value="clothing">Clothing</ion-option>
+        <ion-option value="toy">Toys And Kids</ion-option>
+    </ion-select>
+</ion-item> -->
+
+
+ 
+
+
+</ion-header>
+
+<ion-content  no-padding style="margin-top:-10px;background-color: #E2E2E2">
+    <ion-grid *ngIf="deals">
+        <ion-row *ngFor="let x of filteredDeals" (click)="show(x)">
+          <ion-card class="card-background-page">
+            <ion-grid no-padding>
+              <ion-row>
+                <ion-col col-6>
+                  <img class="imgx" [src]="x.photo || 'https://cdn.dribbble.com/users/21845/screenshots/3938419/placeholder.png'" height="100%"/>
+                  
+                </ion-col>
+                <ion-col col-6>
+                  <div class="card-body">
+                    <div class="card-title">{{x.title}}</div>
+                  </div>
+
+                  <div class="pp">
+                     <img src="assets/imgs/uss.jpg" style="height: 35px; width: 35px; margin-top: 3px;" > 
+                    <p style="margin-left: 35px; font-size: 13.5px; margin-top: -25px;">{{x.userName || 'Unknown'}} </p>
+                  </div>
+
+                  <div class="card-footer" style="text-align: center;" text-center>
+                  </div>
+                  <span style="position: absolute;bottom:0;right:0;margin-right:14px;">
+                  <!-- <ion-icon name="arrow-forward" large style="font-size:30px"></ion-icon> -->
+                  </span>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+    
+          </ion-card>
+        </ion-row>
+      </ion-grid>
+    
+</ion-content>
+<ion-footer>
+    <ion-fab center bottom large>
+    </ion-fab>
+</ion-footer>

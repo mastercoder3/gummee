@@ -1,0 +1,116 @@
+// ion-content{
+//     background-color: #FFFFFF;
+// }
+// .toolbar-background-md{
+//     background-color: 	#FFFFFF;
+// }
+// .header-md::after, .tabs-md[tabsPlacement="top"] > .tabbar::after, .footer-md::before, .tabs-md[tabsPlacement="bottom"] > .tabbar::before {
+//     left: 0;
+//     bottom: -5px;
+//     background-position: left 0 top -2px;
+//     position: absolute;
+//     width: 100%;
+//     height: 5px;
+//     background-image: url();
+//     background-repeat: repeat-x;
+//     content: "";
+// }
+// .searchbar-md .searchbar-input{
+//     box-shadow: none;
+// }
+ion-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0 90px 1px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+  }
+
+
+
+//  ion-tabs{
+//    color:black;
+//  }
+//     #menu {
+//       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(18, 203, 228, 0.19);
+//       font-family: 'Montserrat', sans-serif;
+
+
+//     }
+
+//     .hoverx{
+//       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(18, 203, 228, 0.19);
+
+//     }
+
+//     .content {
+//       /* background-image: linear-gradient(to right, #00afef8a 0%, #00aeef 51%, #00afef9c 100%); */
+//       color:black;
+//       padding-top:20px;
+//       padding-bottom:20px;
+//       margin-top:10px;
+//       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(18, 203, 228, 0.19);
+//       font-family: 'Montserrat', sans-serif;
+
+
+//     }
+
+
+    .info {
+        width: 100%;
+        margin-top: 2rem;
+        margin-bottom: 4rem;
+    }
+
+    .info_img img {
+        width: 12rem;
+        height: 12rem;
+        border-radius: 12rem;
+        border: .2rem solid #ffffff;
+    }
+
+    .info_username {
+        font-size: 1.8rem;
+        color: #111111dc;
+        font-weight: bolder;
+    }
+
+    .info_tip {
+        font-size: 1.4rem;
+        color: #f98000;
+    }
+
+    .menu_item {
+        width: 100%;
+        height: 5rem;
+        line-height: 5rem;
+        margin-left: 0.2rem;
+        color:color($colors, primary, base);
+        padding:-20px;
+        font-size: 1.6rem;
+        font-family: 'Montserrat', sans-serif;
+        color: #161616;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(18, 203, 228, 0.19);
+        background-image: linear-gradient(to right, rgba(22, 22, 22, 0.034) 0%, rgba(255, 255, 255, 0.13) 51%, rgba(255, 255, 255, 0.171) 100%);
+
+    }
+
+
+//     .logout {
+//       font-family: 'Montserrat', sans-serif;
+
+//         width: 100%;
+//         height: 5rem;
+//         line-height: 5rem;
+//         margin-left: 10rem;
+//         font-size: 1.6rem;
+//         color: #000000;
+//         margin-top: 2rem;
+//     }
+
+
+ion-icon, .iconx{
+          color: color($colors,primary,base);  
+        }

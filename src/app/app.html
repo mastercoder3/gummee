@@ -1,0 +1,49 @@
+<ion-menu id="loginmenu" [content]="mycontent" style="font-family: 'Montserrat', sans-serif;">
+    <ion-content class="content" style="margin-top:30px">
+        <div class="info" text-center >
+            <div class="info_img">
+                <img [src]="user.photo" width="100px">
+            </div>
+            <div class="info_username">{{user.name}}</div>
+            <div class="info_tip">{{user.email}}</div>
+        </div>
+        <div class=menubody>
+            
+          <ion-list inset>
+              <ion-list-header text-center>
+                  Gumme
+                </ion-list-header>
+            <ion-item class="hoverx" *ngFor="let p  of loginPages" (click)="navigateTo(p.url)">
+              <ion-icon name="{{p.icon}}"></ion-icon>
+              {{p.name}}
+            </ion-item>
+          </ion-list>
+        </div>
+    </ion-content>
+</ion-menu>
+
+<ion-menu id="logoutmenu" [content]="mycontent" style="font-family: 'Montserrat', sans-serif;">
+    <ion-content class="content" style="margin-top:30px">
+        <div class="info" text-center >
+            <div class="info_img">
+                <img [src]="'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQx1KyXUF5JPMgtFk8vaAhhOI7_T3zi6JcQw4NB6Sqf5Xr5noXV'" alt="" width="100px">
+            </div>
+        </div>
+        
+        <div class=menubody>
+          <ion-list inset>
+              <ion-list-header text-center>
+                  Gumme
+                </ion-list-header>
+            <ion-item class="hoverx" *ngFor="let p of logoutPages" (click)="navigateTo(p.url)">
+              <ion-icon name="{{p.icon}}"></ion-icon>
+              {{p.name}}
+            </ion-item>
+          </ion-list>
+        </div>
+    </ion-content>
+</ion-menu>
+
+
+<ion-nav #mycontent [root]="rootPage" style="font-family: 'Montserrat', sans-serif;"></ion-nav>
+

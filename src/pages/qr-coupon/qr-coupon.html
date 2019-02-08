@@ -1,0 +1,39 @@
+<!--
+  Generated template for the QrCouponPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar >
+    <ion-title>qr-coupon</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+
+    <ion-grid *ngIf="deal">
+      <ion-row>
+        <ion-img [src]="deal.photo" style="width:100%;border:none;outline:none;margin:0px;padding:0px;height:200px"></ion-img>
+      </ion-row>
+
+      <ion-card >
+        <ion-card-header text-center>
+          COUPON
+        </ion-card-header>
+        <ion-card-content text-center >
+      <ngx-qrcode [(qrc-value)]="deal.code" style="width:300px;" qrc-class = "test-class"
+        qrc-errorCorrectionLevel = "L"></ngx-qrcode>
+      <button ion-button full (click)="openLink()">
+        <ion-icon name="arrow-down"></ion-icon>
+      </button>
+      </ion-card-content>
+    </ion-card>
+
+  </ion-grid>
+
+</ion-content>

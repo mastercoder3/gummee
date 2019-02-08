@@ -1,0 +1,52 @@
+
+<ion-header>
+
+  <ion-navbar hideBackButton="true">
+      <ion-buttons left>
+          <button ion-button navPop icon-only>
+           <ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
+         </button>
+         </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<ion-grid>
+  <ion-row>
+    <ion-col no-padding col-1 col-sm-1 col-md-1 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
+
+    </ion-col>
+    <ion-col text-center col-10 col-sm-10 col-md-10 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
+           <h4>SORRY TO LET YOU GO!</h4>
+      </ion-col>
+      <ion-col no-padding col-1 col-sm-1 col-md-1 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
+
+        </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col text-center col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
+       <p style="text-align:justify;position:relative;bottom:25px;">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.</p>
+    </ion-col>
+  </ion-row>
+
+
+ <div class="abc">
+    <ion-row>
+       <ion-col no-padding col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
+           <ion-label error-field no-margin>Confirm email</ion-label>
+           <ion-input class="input" text-left type="email" [(ngModel)]="email"></ion-input>
+           <ion-label error-field no-margin></ion-label>
+            </ion-col>
+     </ion-row></div><br><br>
+
+
+  <ion-row>
+      <ion-col ion-col text-center no-padding col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
+    <button class="btn" ion-button block default-button text-capitalize box-shadow (click)="showDeleteAccount()">DELETE ACCOUNT</button>
+      </ion-col>
+        </ion-row>
+</ion-grid>
+
+</ion-content>

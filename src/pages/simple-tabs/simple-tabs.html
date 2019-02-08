@@ -1,0 +1,50 @@
+
+
+  <ion-menu id="menu" [content]="mycontent" [enabled]="showSidebar" [swipeEnabled]="showSidebar"
+  style="font-family: 'Montserrat', sans-serif;">
+   <ion-content class="content" style="margin-top:30px">
+       <div class="info" text-center >
+           <div class="info_img">
+               <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQx1KyXUF5JPMgtFk8vaAhhOI7_T3zi6JcQw4NB6Sqf5Xr5noXV" alt="" width="100px">
+           </div>
+           <div class="info_username">{{user?.name}}</div>
+           <div class="info_tip">{{user?.email}}</div>
+       </div>
+       <ion-list>
+           <hr>
+
+         <ion-list-header text-center *ngIf="uid === null">
+           Gumme
+         </ion-list-header>
+         <ion-item class="menu_item" class="hoverx" (click)="goHome()">
+             <ion-icon name="home" class="iconx"></ion-icon>
+             <p class="hhm">Home</p>
+           </ion-item>
+
+         <ion-item  *ngIf="uid === null" class="menu_item" class="hoverx" (click)="goSaved()">
+           <ion-icon name="star"></ion-icon>
+           Saved Deals
+         </ion-item>
+         <ion-item  *ngIf="uid === null" class="menu_item" class="hoverx" (click)="goSettings()">
+           <ion-icon name="md-settings"></ion-icon>
+           Settings
+           </ion-item>
+           <ion-item  class="menu_item" class="hoverx" (click)="goLogin()">
+             <ion-icon name="md-person"></ion-icon>
+             LOGIN
+             </ion-item>
+           <ion-item   *ngIf="uid === null" class="menu_item" class="hoverx" (click)="goProfile()">
+               <ion-icon name="md-person"></ion-icon>
+               Profile
+               </ion-item>
+               <ion-item  *ngIf="uid === null" class="menu_item" class="hoverx" (click)="logout()">
+                   <ion-icon name="power"></ion-icon>
+         Logout
+                   </ion-item>
+       </ion-list>
+   </ion-content>
+</ion-menu>
+
+
+<ion-nav #mycontent [root]="rootPage" style="font-family: 'Montserrat', sans-serif;"></ion-nav>
+

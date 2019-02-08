@@ -1,0 +1,53 @@
+<!--
+  Generated template for the InvitedetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+     
+        <button ion-fab color="light" (click)="Back()" style="background-color:transparent">
+            <ion-icon name="ios-arrow-round-back-outline" color="primary" style="font-size:46px;font-weight:bold"></ion-icon>
+        </button>
+  
+    <img *ngIf="inv" [src]="inv.photo || 'https://ununsplash.imgix.net/photo-1421091242698-34f6ad7fc088?fit=crop&fm=jpg&h=650&q=75&w=950'"
+    alt="" style="width:100%;height:250px;margin:0;padding:0;image-rendering: auto;outline:0;">
+</ion-header>
+
+
+<ion-content padding *ngIf="inv">
+
+	<h1 style="color: #8d00b8" >{{inv.title || 'Your Title Comes Here' }}</h1>
+
+	<ion-card>
+	<h2>{{inv.description || ' Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis
+                    architecto optio expedita voluptas odio eaque eveniet consequatur modi ipsa placeat.'}}</h2>
+</ion-card>
+
+<div class="i"><ion-badge style="zoom:1.5;">{{inv.brand || 'Brand'}}</ion-badge></div>
+
+<div class="row">
+<div class="column"><h3>Start Date </h3> <h5 style="color: #8d00b8; margin-top: 0px;" >{{inv.startDate}}</h5></div>
+
+<div class="column"><h3>End Date </h3> <h5 style="color: #8d00b8; margin-top: 0px;" >{{inv.endDate}}</h5></div>
+
+</div>
+
+<ion-card> 
+	<h2>Rewards</h2><h3 style="color: #8d00b8">{{inv.rewarding || 'NO Reward NO Reward NO Reward NO Reward NO Reward NO Reward NO Reward'}}</h3> </ion-card>
+
+<div >
+            <ion-badge  color="success" *ngIf="inv.approved == 'approved'">Accepted</ion-badge>
+          <ion-badge  color="warning" *ngIf="inv.approved == 'pending' || false">Pending</ion-badge>
+          <ion-badge  color="danger" *ngIf="inv.approved == ('decline' || false)">Decline</ion-badge>
+
+	<div class="row">
+<div class="column" *ngIf="inv.approved=='pending'" (click)="reject(inv)"> <button round ion-button color="light">Reject</button></div>
+
+<div class="column" *ngIf="inv.approved=='pending'" (click)="accept(inv)"><button  round ion-button>Accept</button></div>
+
+</div>
+</div>
+
+
+</ion-content>

@@ -1,0 +1,112 @@
+<ion-header>
+
+    <ion-navbar hideBackButton="true">
+        <ion-buttons left>
+            <button ion-button navPop icon-only>
+                <ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+
+        <ion-buttons right *ngIf="deal">
+                <button ion-button icon-only (click)="deleteDeal()">
+                    <ion-icon name="trash"></ion-icon>
+                </button>
+        </ion-buttons>
+            
+        <ion-title>{{title}}</ion-title>
+
+
+    </ion-navbar>
+    <!-- <div class="info" padding>
+      <p class="p">PERSONAL INFORMATION</p>
+    </div> -->
+</ion-header>
+
+
+<ion-content padding>
+    <ion-grid>
+            <ion-row>
+                    <ion-col col-12 text-center>
+                      <ion-img (click)="setImage()" style="width:120px;height:120px"  [src]="deal?.photo || 'https://cdn.dribbble.com/users/21845/screenshots/3938419/placeholder.png'" height="120px"></ion-img>    
+                    </ion-col>
+                  </ion-row>
+    </ion-grid>
+    <form [formGroup]="dealForm" (ngSubmit)="submit(dealForm)">
+        <ion-item>
+            <ion-label floating>Deals Title</ion-label>
+            <ion-input type="text" formControlName="title" [class.invalid]="!dealForm.get('title').valid && (dealForm.get('title').dirty || dealForm.get('title').touched)"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label floating>Brand Name</ion-label>
+            <ion-input type="text" formControlName="brand" [class.invalid]="!dealForm.get('brand').valid && (dealForm.get('brand').dirty || dealForm.get('brand').touched)"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label floating>Description</ion-label>
+            <ion-input type="text" formControlName="description" [class.invalid]="!dealForm.get('description').valid && (dealForm.get('description').dirty || dealForm.get('description').touched)"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label floating>Brand Contact No</ion-label>
+            <ion-input type="number" formControlName="brandPhone" [class.invalid]="!dealForm.get('brandPhone').valid && (dealForm.get('brandPhone').dirty || dealForm.get('brandPhone').touched)"></ion-input>
+        </ion-item>
+
+        <ion-item>
+                <ion-label floating>URL</ion-label>
+                <ion-input type="text" formControlName="url" [class.invalid]="!dealForm.get('url').valid && (dealForm.get('url').dirty || dealForm.get('url').touched)"></ion-input>
+            </ion-item>
+
+        <ion-item>
+            <ion-label floating>Select Category</ion-label>
+            <ion-select placeholder="Select Category" formControlName="categoryId" [class.invalid]="!dealForm.get('categoryId').valid && (dealForm.get('categoryId').dirty || dealForm.get('categoryId').touched)">
+                    <ion-option *ngFor="let x of categories" value={{x.id}}>{{x.name}}</ion-option>
+                </ion-select>
+        </ion-item>
+
+        <ion-item>
+            <ion-label floating [class.invalid]="!dealForm.get('categoryId').valid && (dealForm.get('categoryId').dirty || dealForm.get('categoryId').touched)">Select Deal Type</ion-label>
+            <ion-select formControlName="dealType" placeholder="Select Deal Type">
+                    <ion-option >Online</ion-option>
+            </ion-select>
+        </ion-item>
+
+        <ion-item>
+            <ion-label floating>Select Coupon Type</ion-label>
+            <ion-select formControlName="couponType" placeholder="Select Coupon Type" >
+                    <ion-option *ngFor="let x of couponType" value={{x.id}}>{{x.value}}</ion-option>
+                </ion-select>
+        </ion-item>
+
+        <ion-item>
+            <ion-label floating>Coupon Code</ion-label>
+            <ion-input type="text" formControlName="code" [class.invalid]="!dealForm.get('code').valid && (dealForm.get('code').dirty || dealForm.get('code').touched)"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label floating> Sale Price</ion-label>
+            <ion-input type="text" formControlName="price" [class.invalid]="!dealForm.get('price').valid && (dealForm.get('price').dirty || dealForm.get('price').touched)"></ion-input>
+        </ion-item>
+
+
+        <ion-item>
+            <ion-label floating>Normal Price</ion-label>
+            <ion-input type="text" formControlName="normalprice" [class.invalid]="!dealForm.get('normalprice').valid && (dealForm.get('normalprice').dirty || dealForm.get('normalprice').touched)"></ion-input>
+        </ion-item>
+
+
+        <ion-item>
+            <ion-label floating>Start Date</ion-label>
+            <ion-datetime displayFormat="MM/DD/YYYY" formControlName="startDate"  [min]="'2018'" [max]="maxDate">
+            </ion-datetime>
+        </ion-item>
+
+        <ion-item>
+            <ion-label floating>End Date</ion-label>
+            <ion-datetime displayFormat="MM/DD/YYYY" formControlName="endDate"  [min]="dealForm.get('startDate').value" [max]="maxDate">
+            </ion-datetime>
+        </ion-item>
+
+        <button ion-button block color="primary" [disabled]="!dealForm.valid" type="submit">{{buttonText}}</button>
+    </form>
+</ion-content>

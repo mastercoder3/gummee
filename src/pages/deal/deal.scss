@@ -1,0 +1,41 @@
+page-deal {
+
+
+  .buttonx{
+    background-image: linear-gradient(to right, rgb(38, 50, 211) 0%, rgb(70, 83, 195) 51%, rgb(92, 132, 217) 100%);
+    margin-left: 6px;
+    margin-right: 6px;
+  }
+
+  .pricex{
+   color: rgba(29, 37, 156, 0.808) !important;
+   font-size:40px;
+   margin-bottom:-20px;
+   top:60px;
+   position: relative;
+   font-weight: bolder;
+
+
+
+  }
+
+.dd{
+  text-align : right;
+}
+
+.dashed {border-style: dashed;}
+
+  .footx{
+    position:absolute;
+    bottom:0;
+    font-size:12px;
+    margin:10px;
+  }
+
+  .dsd{
+  text-align: center;
+  margin-top: 10px;
+  }
+}
+
+

@@ -1,0 +1,120 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/theming/
+
+// Font path is used to include ionicons,
+// roboto, and noto sans fonts
+$font-path: "../assets/fonts";
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300');
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+
+// The app direction is used to include
+// rtl styles in your app. For more info, please see:
+// http://ionicframework.com/docs/theming/rtl-support/
+$app-direction: ltr;
+
+
+@import "ionic.globals";
+@import "../assets/header.scss";		//<- Add this line
+
+
+// Shared Variables
+// --------------------------------------------------
+// To customize the look and feel of this app, you can override
+// the Sass variables found in Ionic's source scss files.
+// To view all the possible Ionic variables, see:
+// http://ionicframework.com/docs/theming/overriding-ionic-variables/
+
+
+
+
+// Named Color Variables
+// --------------------------------------------------
+// Named colors makes it easy to reuse colors on various components.
+// It's highly recommended to change the default colors
+// to match your app's branding. Ionic uses a Sass map of
+// colors so you can add, rename and remove colors as needed.
+// The "primary" color is the only required color in the map.
+
+
+$colors: (
+//  primary:    #00aeef,
+primary:#8d00b8,
+  secondary:  #32db64,
+  danger:     #f53d3d,
+  light:      #f4f4f4,
+  dark:       #222,
+  transparent: transparent
+);
+
+
+
+// App iOS Variables
+// --------------------------------------------------
+// iOS only Sass variables can go here
+
+
+
+
+// App Material Design Variables
+// --------------------------------------------------
+// Material Design only Sass variables can go here
+
+
+
+
+// App Windows Variables
+// --------------------------------------------------
+// Windows only Sass variables can go here
+
+
+
+
+// App Theme
+// --------------------------------------------------
+// Ionic apps can have different themes applied, which can
+// then be future customized. This import comes last
+// so that the above variables are used and Ionic's
+// default are overridden.
+
+@import "ionic.theme.default";
+
+
+// Ionicons
+// --------------------------------------------------
+// The premium icon font for Ionic. For more info, please see:
+// http://ionicframework.com/docs/ionicons/
+
+@import "ionic.ionicons";
+
+
+// Fonts
+// --------------------------------------------------
+$font-family-base: 'CircularStd-Medium';
+$font-family-ios-base: 'CircularStd-Medium';
+$font-family-md-base: 'CircularStd-Medium';
+$font-family-wp-base: 'CircularStd-Medium';
+@font-face{
+	font-family: 'CircularStd-Black';
+	src: url('../assets/circular/CircularStd-Black.otf');
+}
+
+@font-face{
+	font-family: 'CircularStd-Medium';
+	src: url('../assets/circular/CircularStd-Medium.otf');
+}
+
+$font-family-base: "CircularStd-Black";
+
+.card-title,.h1,.hhm,iconx,.sss{
+	font-family: "CircularStd-Black" !important;
+}
+
+.p,.pp,.pppp,.ff{
+	font-family: "CircularStd-Medium" !important;
+}
+
+*:not(ion-icon) {
+    font-family: 'CircularStd-Medium' !important;
+}
